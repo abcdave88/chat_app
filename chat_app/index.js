@@ -19,8 +19,10 @@ var io = require('socket.io').listen(server);
 
 io.sockets.on('connection', function(socket) {
   socket.emit('connected');
+  socket.on('chat', function(data) {
+  writeLine(data.name, data.line);
+  });
 });
-
 
 
 
